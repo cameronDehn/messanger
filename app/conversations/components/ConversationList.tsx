@@ -10,7 +10,7 @@ import clsx from "clsx";
 
 import useConversation from "@/app/hooks/useConversation";
 // import { pusherClient } from "@/app/libs/pusher";
-// import GroupChatModal from "@/app/components/modals/GroupChatModal";
+import GroupChatModal from "@/app/components/modals/GroupChatModal";
 // import ConversationBox from "./ConversationBox";
 import { FullConversationType } from "@/app/types";
 import ConversationBox from "./ConversationBox";
@@ -26,7 +26,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
   users,
 }) => {
   const [items, setItems] = useState(initialItems);
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const router = useRouter();
   const session = useSession();
@@ -80,11 +80,11 @@ const ConversationList: React.FC<ConversationListProps> = ({
 
   return (
     <>
-      {/* <GroupChatModal 
+      <GroupChatModal 
         users={users} 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)}
-      /> */}
+      />
       <aside
         className={clsx(
           `
@@ -106,7 +106,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
           <div className="flex justify-between mb-4 pt-4">
             <div className="text-2xl font-bold text-neutral-800">Messages</div>
             <div
-              //   onClick={() => setIsModalOpen(true)}
+              onClick={() => setIsModalOpen(true)}
               className="
                 rounded-full 
                 p-2 
